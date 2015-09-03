@@ -24,17 +24,17 @@ Matrix.mt = {
 		if self.columns ~= mat.rows then return nil end
 
 		m = {}
-		for i = 1, mat.rows do
+		for i = 1, self.rows do
 			m[i] = {}
-			for j = 1, self.columns do
+			for j = 1, mat.columns do
 				m[i][j] = 0
 			end
 		end
 
 		result = Matrix:new(m)
-		for i = 1, self.rows do
-			for j = 1, self.columns do
-				for k = 1, result.columns do
+		for i = 1, result.rows do
+			for j = 1, result.columns do
+				for k = 1, self.columns do
 					result.matrix[i][j] = result.matrix[i][j] + self.matrix[i][k] * mat.matrix[k][j]
 				end
 			end
