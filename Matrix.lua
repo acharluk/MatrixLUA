@@ -40,6 +40,16 @@ Matrix.mt = {
 			end
 		end
 		return result
+	end,
+	__tostring = function(self)
+		str = ""
+		for i = 1, self.rows do
+			for j = 1, self.columns do
+				str = str .. self.matrix[i][j] .. ","
+			end
+			str = str .. "\n"
+		end
+		return str
 	end
 }
 
