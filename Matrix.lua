@@ -50,6 +50,18 @@ Matrix.mt = {
 			str = str .. "\n"
 		end
 		return str
+	end,
+	__call = function(self) -- When a matrix is called, return its determinant (only 1, 2 or 3 sizes)
+		m = self.matrix
+		assert(#m == #m[1], "Matrix is not square!")
+		local size = #m
+
+		if size == 1 then return m[1][1] end
+		if size == 2 then return m[1][1] * m[2][2] - m[2][1] * m[1][2] end
+		if size == 3 then return m[1][1]*m[2][2]*m[3][3] + m[1][2]*m[2][3]*m[3][1] + m[1][3]*m[2][1]*m[3][2]
+							   - m[1][3]*m[2][2]*m[3][1] - m[1][1]*m[2][3]*m[3][2] - m[1][2]*m[2][1]*m[3][3] end
+
+		return -0
 	end
 }
 
