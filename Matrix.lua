@@ -74,5 +74,13 @@ function Matrix:new(matrix)
 	self.rows = #matrix
 	self.columns = #matrix[1]
 
+	self.reset = function()
+		for i = 1, self.rows do
+			for j = 1, self.columns do
+				self.matrix[i][j] = 0
+			end
+		end
+	end
+
 	return self
 end

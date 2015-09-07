@@ -7,7 +7,11 @@ function main()
 	local matrix4 = Matrix:new({{1, 2, 3}, {4, 5, 6}})
 	
 	print((matrix2 * matrix3)())
-	print(Matrix:new({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})())
+
+	matrix2:reset()
+	print((matrix2 * matrix3)())
+
+	print(Matrix:new({{1, 2, 3}, {4, 5, 6}, {7, 8, 10}})())
 end
 
 local ok, err = pcall(main)
